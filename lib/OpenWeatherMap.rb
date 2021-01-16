@@ -12,26 +12,44 @@ require 'active_support/time'
 
 module OpenWeatherMap
   class Error < StandardError; end
-  # Your code goes here...
 
   class Auth
     attr_accessor :api_key
 
-    def initialize(id)
+    def initialize(id, city = 'Santa Cruz do Sul')
       @api_key = id
+      @city = city
     end
 
-    def get_openweather_temperature
-      Time.zone = 'America/Sao_Paulo'
-      current_weather = request_current_weather
-      next_weather_forecast = request_next_weather_forecast
-      return send_weather_forecast(current_weather, next_weather_forecast)
+    def current_forecast
+      current_weather = current_weather_forecast
+      message = "Previsão: #{current_weather[:temp]}°C e #{current_weather[:description]} em #{current_weather[:city]} "
+      message += "em #{current_weather[:date]}."
+      { message: message }
+    end
+
+    def next_five_forecast
+      next_five_forecast_days = next_weather_forecast
+      message = "Média para os próximos dias em (#{@city}): "
+
+      next_five_forecast_days.each do |day, temp|
+        average = temp.reduce(:+) / temp.count
+        message += "#{average}°C em #{day}, "
+      end
+      { message: message }
+    end
+
+    def complete_forecast
+      current_weather = current_weather_forecast
+      next_five_forecast_days = next_weather_forecast
+      print_temperature(current_weather, next_five_forecast_days)
     end
 
     private
 
-    def request_current_weather
-      current_weather = "http://api.openweathermap.org/data/2.5/weather?q=Santa%20Cruz%20do%20Sul&lang=pt_br&units=metric&appid=#{@api_key}"
+    def current_weather_forecast
+      Time.zone = 'America/Sao_Paulo'
+      current_weather = "http://api.openweathermap.org/data/2.5/weather?q=#{@city}&lang=pt_br&units=metric&appid=#{@api_key}"
       parse_current_weather = request_openweather(current_weather)
       {
         date: Time.zone.at(parse_current_weather['dt']).strftime('%d/%m'),
@@ -41,8 +59,9 @@ module OpenWeatherMap
       }
     end
 
-    def request_next_weather_forecast
-      forecast_weather = "http://api.openweathermap.org/data/2.5/forecast?q=Santa%20Cruz%20do%20Sul&lang=pt_br&units=metric&appid=#{@api_key}"
+    def next_weather_forecast
+      Time.zone = 'America/Sao_Paulo'
+      forecast_weather = "http://api.openweathermap.org/data/2.5/forecast?q=#{@city}&lang=pt_br&units=metric&appid=#{@api_key}"
       parse_forecast_weather = request_openweather(forecast_weather)
 
       timestamp_now = Time.now.to_i
@@ -60,12 +79,13 @@ module OpenWeatherMap
       weather_forecast.group_by { |h| h[:date] }.transform_values { |hs| hs.map { |h| h[:graus].to_i } }
     end
 
-    def send_weather_forecast(current_weather, next_weather_forecast)
+    def print_temperature(current_weather, next_weather_forecast)
       message = "#{current_weather[:temp]}°C e #{current_weather[:description]} em #{current_weather[:city]} "
       message += "em #{current_weather[:date]}. Média para os próximos dias: "
 
       next_weather_forecast.each do |day, temp|
         next if current_weather[:date].to_s == day.to_s
+
         average = temp.reduce(:+) / temp.count
         message += "#{average}°C em #{day}, "
       end
