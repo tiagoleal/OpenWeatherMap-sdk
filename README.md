@@ -35,21 +35,30 @@ After create a `token` OpenweatherMap Api, you can do the following things.
 **OpenWeatherMap (show the current forecast)**
 
 ```ruby
-client = OpenWeatherMap::Auth.new('f32b88630791a7026ad9e5bceddafec5','Santa Cruz do Sul')
+#id: Your token OpenWeatherMap API (https://openweathermap.org/api)
+#city: desired city (optional parameter)
+#default city='Santa Cruz do Sul'
+client = OpenWeatherMap::Auth.new(id,'Santa Cruz do Sul')
 client.current_forecast
 ```
 
 **OpenWeatherMap (show the next five days forecast)**
 
 ```ruby
-client = OpenWeatherMap::Auth.new('f32b88630791a7026ad9e5bceddafec5','Santa Cruz do Sul')
+#id: Your token OpenWeatherMap API (https://openweathermap.org/api)
+#city: desired city (optional parameter)
+#default city='Santa Cruz do Sul'
+client = OpenWeatherMap::Auth.new(id,'Santa Cruz do Sul')
 client.next_five_forecast
 ```
 
 **OpenWeatherMap (show the current and next five days forecast)**
 
 ```ruby
-client = OpenWeatherMap::Auth.new('f32b88630791a7026ad9e5bceddafec5','Santa Cruz do Sul')
+#id: Your token OpenWeatherMap API (https://openweathermap.org/api)
+#city: desired city (optional parameter)
+#default city='Santa Cruz do Sul'
+client = OpenWeatherMap::Auth.new(id)
 client.complete_forecast
 ```
 
