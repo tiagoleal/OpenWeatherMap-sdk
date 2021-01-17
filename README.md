@@ -90,7 +90,7 @@ This library aims to support and is the following Ruby versions:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/tiagoleal/OpenWeatherMap.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tiagoleal/OpenWeatherMap-sdk.
 
 
 
