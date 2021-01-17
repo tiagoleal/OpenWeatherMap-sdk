@@ -26,17 +26,12 @@ RSpec.describe OpenWeatherMap do
 
       it '#current_forecast' do
         response = @openweathermap.current_forecast
-        expect(response.keys).to match_array([:message])
+        expect(response.keys).to match_array([:current_weather])
       end
 
       it '#next_five_forecast' do
         response = @openweathermap.next_five_forecast
-        expect(response.keys).to match_array([:message])
-      end
-
-      it '#complete_forecast' do
-        response = @openweathermap.complete_forecast
-        expect(response.keys).to match_array([:message])
+        expect(response.keys).to match_array([:next_five_weather])
       end
     end
 

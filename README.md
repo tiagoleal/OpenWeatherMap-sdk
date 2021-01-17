@@ -4,21 +4,14 @@
   <a href="https://github.com/tiagoleal/coin_conversion">
     <img alt="Current Version" src="https://img.shields.io/badge/version-1.0.0 -blue.svg">
   </a>
-  <!-- <a href="#" title="Circleci">
-    <img alt="Circleci Status" src="https://circleci.com/gh/tiagoleal/secret_friend.svg?style=svg" target="_blank">
-  </a> -->
-
   <a href="https://ruby-doc.org/core-2.7">
     <img alt="Ruby Version" src="https://img.shields.io/badge/Ruby-2.7 -green.svg" target="_blank">
   </a>
-
-  <!-- <a href="https://guides.rubyonrails.org/5_2_release_notes.html">
-    <img alt="" src="https://img.shields.io/badge/Rails-~> 5.2.2-blue.svg" target="_blank">
-  </a> -->
-
 </p>
 
 A Ruby interface to the Openweather API.
+
+
 
 ## Installation
 
@@ -33,19 +26,33 @@ And then execute:
 
     $ bundle install
 
-## Documentation
 
-[http://rdoc.info/gems/twitter][documentation]
-
-[documentation]: http://rdoc.info/gems/twitter
 
 ## Examples files
 
-[https://github.com/sferik/twitter/tree/master/examples][examples]
+[https://github.com/tiagoleal/OpenWeatherMap-sdk/tree/master/examples][examples]
+
+
 
 ## Usage Examples
 
-TODO: Write usage instructions here
+After create a `token` OpenweatherMap Api, you can do the following things.
+
+**OpenWeatherMap (show the current forecast)**
+
+```ruby
+client = OpenWeatherMap::Auth.new('f32b88630791a7026ad9e5bceddafec5','Santa Cruz do Sul')
+client.current_forecast
+```
+
+**OpenWeatherMap (show the next five days forecast)**
+
+```ruby
+client = OpenWeatherMap::Auth.new('f32b88630791a7026ad9e5bceddafec5','Santa Cruz do Sul')
+client.next_five_forecast
+```
+
+
 
 ## Running tests
 
@@ -63,13 +70,15 @@ rspec spec
 rspec spec/OpenWeatherMap_spec.rb
 ```
 
+
 ## Supported Ruby Versions
 
-## Development
+This library aims to support and is the following Ruby versions:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+- Ruby 2.6
+- Ruby 2.7
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
 
 ## Authors
 
@@ -77,9 +86,13 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 <!-- prettier-ignore -->
 [<img src="https://avatars1.githubusercontent.com/u/5727529?s=460&v=4" width="100px;"/><br /><sub><b>Tiago Leal</b></sub>](https://github.com/tiagoleal)<br />
 
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[tiagoleal]/OpenWeatherMap.
+
+
 
 ## License
 
