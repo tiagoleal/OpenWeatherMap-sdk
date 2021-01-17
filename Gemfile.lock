@@ -6,15 +6,25 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (6.1.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
+    concurrent-ruby (1.1.5)
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    i18n (1.6.0)
+      concurrent-ruby (~> 1.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.1104)
+    minitest (5.11.3)
     netrc (0.11.0)
     rake (10.5.0)
     rest-client (2.1.0)
@@ -36,15 +46,19 @@ GEM
       rspec-support (~> 3.10.0)
     rspec-support (3.10.1)
     time (0.1.0)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   OpenWeatherMap!
+  activesupport (~> 6.1.1)
   bundler (~> 1.17)
   rake (~> 10.0)
   rest-client

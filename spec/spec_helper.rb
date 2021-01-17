@@ -2,6 +2,9 @@
 
 require 'bundler/setup'
 require 'OpenWeatherMap'
+require 'rest-client'
+require 'active_support/time'
+require 'active_support/all'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -13,4 +16,6 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  OPENWEATHERMAP_TOKEN = 'f32b88630791a7026ad9e5bceddafec5'
 end

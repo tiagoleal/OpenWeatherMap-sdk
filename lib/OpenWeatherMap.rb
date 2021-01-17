@@ -14,7 +14,7 @@ module OpenWeatherMap
   class Error < StandardError; end
 
   class Auth
-    attr_accessor :api_key
+    attr_accessor :api_key, :city
 
     def initialize(id, city = 'Santa Cruz do Sul')
       @api_key = id
@@ -34,9 +34,10 @@ module OpenWeatherMap
 
       next_five_forecast_days.each do |day, temp|
         average = temp.reduce(:+) / temp.count
-        message += "#{average}°C em #{day}, "
+        message += "#{average}°C em #{day},"
       end
-      { message: message }
+      format_massage = message.gsub(/[\&,]/, '.')
+      { message: format_massage }
     end
 
     def complete_forecast
@@ -49,8 +50,8 @@ module OpenWeatherMap
 
     def current_weather_forecast
       Time.zone = 'America/Sao_Paulo'
-      current_weather = "http://api.openweathermap.org/data/2.5/weather?q=#{@city}&lang=pt_br&units=metric&appid=#{@api_key}"
-      parse_current_weather = request_openweather(current_weather)
+      openweathermap_url = "http://api.openweathermap.org/data/2.5/weather?q=#{@city}&lang=pt_br&units=metric&appid=#{@api_key}"
+      parse_current_weather = request_openweather(openweathermap_url)
       {
         date: Time.zone.at(parse_current_weather['dt']).strftime('%d/%m'),
         temp: parse_current_weather['main']['temp'].to_i,
@@ -61,8 +62,8 @@ module OpenWeatherMap
 
     def next_weather_forecast
       Time.zone = 'America/Sao_Paulo'
-      forecast_weather = "http://api.openweathermap.org/data/2.5/forecast?q=#{@city}&lang=pt_br&units=metric&appid=#{@api_key}"
-      parse_forecast_weather = request_openweather(forecast_weather)
+      openweathermap_url = "http://api.openweathermap.org/data/2.5/forecast?q=#{@city}&lang=pt_br&units=metric&appid=#{@api_key}"
+      parse_forecast_weather = request_openweather(openweathermap_url)
 
       timestamp_now = Time.now.to_i
       weather_forecast = parse_forecast_weather['list'].map do |temp|
@@ -89,7 +90,8 @@ module OpenWeatherMap
         average = temp.reduce(:+) / temp.count
         message += "#{average}°C em #{day}, "
       end
-      { message: message }
+      format_massage = message.gsub(/[\&,]/, '.')
+      { message: format_massage }
     end
 
     def request_openweather(url)
