@@ -1,6 +1,6 @@
 # The OpenWeatherMap-sdk Ruby gem
 
-<p align="center">
+<p>
   <a href="https://github.com/tiagoleal/coin_conversion">
     <img alt="Current Version" src="https://img.shields.io/badge/version-1.0.0 -blue.svg">
   </a>
@@ -29,9 +29,9 @@ And then execute:
 
 
 ## Examples files
-
 [https://github.com/tiagoleal/OpenWeatherMap-sdk/tree/master/examples][examples]
 
+[examples]: https://github.com/tiagoleal/OpenWeatherMap-sdk/tree/master/examples
 
 
 ## Usage Examples
@@ -90,7 +90,7 @@ This library aims to support and is the following Ruby versions:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[tiagoleal]/OpenWeatherMap.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tiagoleal/OpenWeatherMap.
 
 
 
