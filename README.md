@@ -1,7 +1,7 @@
 # The OpenWeatherMap-sdk Ruby gem
 
 <p>
-  <a href="https://github.com/tiagoleal/coin_conversion">
+  <a href="https://github.com/tiagoleal/OpenWeatherMap-sdk">
     <img alt="Current Version" src="https://img.shields.io/badge/version-1.0.0 -blue.svg">
   </a>
   <a href="https://ruby-doc.org/core-2.7">
