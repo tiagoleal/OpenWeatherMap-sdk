@@ -1,11 +1,6 @@
 # The OpenWeatherMap-sdk Ruby gem
 
-<<<<<<< HEAD
-
-# <p align="center">
-
 <p>
->>>>>>> 9b13e00de4dc15e8b89a4c785100d9411613d7c6
   <a href="https://github.com/tiagoleal/OpenWeatherMap-sdk">
     <img alt="Current Version" src="https://img.shields.io/badge/version-1.0.0 -blue.svg">
   </a>
