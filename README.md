@@ -1,6 +1,11 @@
 # The OpenWeatherMap-sdk Ruby gem
 
-<p align="center">
+<<<<<<< HEAD
+
+# <p align="center">
+
+<p>
+>>>>>>> 9b13e00de4dc15e8b89a4c785100d9411613d7c6
   <a href="https://github.com/tiagoleal/OpenWeatherMap-sdk">
     <img alt="Current Version" src="https://img.shields.io/badge/version-1.0.0 -blue.svg">
   </a>
@@ -84,7 +89,7 @@ This library aims to support and is the following Ruby versions:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[tiagoleal]/OpenWeatherMap.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tiagoleal/OpenWeatherMap-sdk.
 
 ## License
 
