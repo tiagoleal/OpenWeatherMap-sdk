@@ -53,6 +53,13 @@ module OpenWeatherMap
       { next_five_weather: weather_forecast.group_by { |h| h[:date] }.transform_values { |hs| hs.map { |h| h[:graus].to_i } } }
     end
 
+    def complete_forecast
+      [
+        current_forecast,
+        next_five_forecast
+      ]
+    end
+
     private
 
     def request_openweather(url)
