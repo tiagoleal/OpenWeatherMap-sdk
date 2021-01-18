@@ -26,7 +26,7 @@ And then execute:
 
 ## Examples files
 
-https://github.com/tiagoleal/OpenWeatherMap-sdk/tree/master/examples[examples]
+https://github.com/tiagoleal/OpenWeatherMap-sdk/tree/master/examples
 
 ## Usage Examples
 
